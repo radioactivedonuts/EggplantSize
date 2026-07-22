@@ -3,115 +3,232 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🍆 How Big is Your Eggplant?</title>
+
+<title>EggplantHub</title>
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍆</text></svg>">
+
+
 <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap');
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Inter,Arial,sans-serif;
+}
 
-    *{box-sizing:border-box}
-    body{
-        margin:0;
-        font-family:'Inter', system-ui, sans-serif;
-        background:linear-gradient(135deg,#2a0033,#4a004d);
-        color:#ffddaa;
-        min-height:100vh;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        text-align:center;
-        overflow:hidden;
-    }
+body{
+    min-height:100vh;
+    background:linear-gradient(135deg,#3b0764,#581c87,#7e22ce);
+    overflow-x:hidden;
+    color:white;
+}
 
-    .container{
-        max-width:620px;
-        padding:20px;
-    }
+.floating{
+    position:fixed;
+    font-size:40px;
+    opacity:.15;
+    animation:float linear infinite;
+    pointer-events:none;
+}
 
-    h1{
-        font-size:3.4rem;
-        margin-bottom:30px;
-        text-shadow:0 0 30px #ff66aa;
+@keyframes float{
+    from{
+        transform:translateY(110vh) rotate(0deg);
     }
+    to{
+        transform:translateY(-120px) rotate(360deg);
+    }
+}
 
-    button{
-        font-size:2.1rem;
-        padding:32px 70px;
-        border:none;
-        border-radius:30px;
-        background:linear-gradient(135deg,#aa3366,#ff4488);
-        color:white;
-        font-weight:700;
-        cursor:pointer;
-        box-shadow:0 15px 40px rgba(255,68,136,0.6);
-        transition:all 0.3s;
-        width:100%;
-        max-width:420px;
-    }
+header{
+    text-align:center;
+    padding:60px 20px 30px;
+}
 
-    button:hover{
-        transform:scale(1.12);
-        box-shadow:0 20px 50px rgba(255,68,136,0.8);
-    }
+h1{
+    font-size:4rem;
+    margin-bottom:10px;
+    text-shadow:0 0 20px rgba(255,255,255,.4);
+}
 
-    #result{
-        margin-top:50px;
-        font-size:2.5rem;
-        font-weight:700;
-        min-height:200px;
-        line-height:1.4;
-    }
+.subtitle{
+    opacity:.85;
+    font-size:1.2rem;
+}
 
-    .flash{animation:flash 0.8s ease;}
-    @keyframes flash{
-        0%{transform:scale(1)}
-        50%{transform:scale(1.15)}
-        100%{transform:scale(1)}
-    }
+.container{
+    max-width:1200px;
+    margin:auto;
+    padding:30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+}
+
+.card{
+    backdrop-filter:blur(18px);
+    background:rgba(255,255,255,.1);
+    border:1px solid rgba(255,255,255,.2);
+    border-radius:25px;
+    padding:30px;
+    transition:.3s;
+    box-shadow:0 8px 32px rgba(0,0,0,.3);
+}
+
+.card:hover{
+    transform:translateY(-8px);
+}
+
+.card h2{
+    font-size:2rem;
+    margin-bottom:10px;
+}
+
+.card p{
+    opacity:.85;
+    margin-bottom:20px;
+    line-height:1.5;
+}
+
+.buttons{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+}
+
+.btn{
+    flex:1;
+    min-width:120px;
+    text-decoration:none;
+    color:white;
+    text-align:center;
+    padding:12px;
+    border-radius:999px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.2);
+    backdrop-filter:blur(12px);
+    transition:.25s;
+}
+
+.btn:hover{
+    background:rgba(255,255,255,.25);
+    transform:scale(1.05);
+}
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    opacity:.7;
+}
 </style>
 </head>
 <body>
 
+<div class="floating" style="left:5%;animation-duration:16s;">🍆</div>
+<div class="floating" style="left:20%;animation-duration:22s;">🍆</div>
+<div class="floating" style="left:35%;animation-duration:18s;">🍆</div>
+<div class="floating" style="left:50%;animation-duration:24s;">🍆</div>
+<div class="floating" style="left:65%;animation-duration:19s;">🍆</div>
+<div class="floating" style="left:80%;animation-duration:21s;">🍆</div>
+<div class="floating" style="left:95%;animation-duration:17s;">🍆</div>
+
+<header>
+    <h1>🍆 EggplantHub 🍆</h1>
+    <p class="subtitle">Home of all the Eggplant projects.</p>
+</header>
+
 <div class="container">
-    <h1>🍆 How Big is Your Eggplant? 🍆</h1>
-    
-    <button onclick="testLuck()">TEST YOUR EGGPLANT</button>
-    
-    <div id="result">Press the big purple button...</div>
+
+    <div class="card">
+        <h2>📁 The Eggplant Files</h2>
+        <p>
+            A collection of games and projects all in one place.
+        </p>
+
+        <div class="buttons">
+            <a class="btn"
+               href="https://github.com/radioactivedonuts/TheEggplantFiles"
+               target="_blank">
+               GitHub
+            </a>
+
+            <a class="btn"
+               href="https://radioactivedonuts.github.io/TheEggplantFiles/"
+               target="_blank">
+               Open Site
+            </a>
+        </div>
+    </div>
+
+    <div class="card">
+        <h2>🖱️ Eggplant Clicker</h2>
+        <p>
+            Click, upgrade, automate, and become the ultimate eggplant billionaire.
+        </p>
+
+        <div class="buttons">
+            <a class="btn"
+               href="https://github.com/radioactivedonuts/EggplantClicker"
+               target="_blank">
+               GitHub
+            </a>
+
+            <a class="btn"
+               href="https://radioactivedonuts.github.io/EggplantClicker/"
+               target="_blank">
+               Open Site
+            </a>
+        </div>
+    </div>
+
+    <div class="card">
+    <h2>📏 Eggplant Size</h2>
+    <p>
+        Compare, measure, and discover just how enormous your eggplants can become.
+    </p>
+
+    <div class="buttons">
+        <a class="btn"
+           href="https://github.com/radioactivedonuts/EggplantSize"
+           target="_blank">
+           GitHub
+        </a>
+
+        <a class="btn"
+           href="https://radioactivedonuts.github.io/EggplantSize/"
+           target="_blank">
+           Open Site
+        </a>
+    </div>
 </div>
 
-<script>
-function testLuck() {
-    const max = 1000000;
-    const roll = Math.floor(Math.random() * max) + 1;
-    
-    let message = "";
-    
-    if (roll === 1) {
-        message = "👑 THE ULTIMATE EGGPLANT!!!<br>You are a living legend!";
-    } else if (roll <= 50) {
-        message = "💎 GOD TIER EGGPLANT<br>Extremely rare and massive!";
-    } else if (roll <= 300) {
-        message = "🌟 ABSOLUTELY MASSIVE EGGPLANT<br>Impressively huge!";
-    } else if (roll <= 1500) {
-        message = "🍆 VERY THICK EGGPLANT<br>Respectable and satisfying!";
-    } else if (roll <= 8000) {
-        message = "👍 SOLID EGGPLANT<br>Pretty good size!";
-    } else if (roll <= 50000) {
-        message = "🙂 DECENT EGGPLANT<br>Not bad at all!";
-    } else if (roll <= 200000) {
-        message = "😐 MID EGGPLANT<br>Could be bigger...";
-    } else if (roll <= 600000) {
-        message = "😔 SAD EGGPLANT<br>Small and disappointing...";
-    } else {
-        message = "💀 NO EGGPLANT<br>Why are you here?";
-    }
+    <div class="card">
+        <h2>🔊 Eggplant Farts</h2>
+        <p>
+            A soundboard packed with ridiculous eggplant noises.
+        </p>
 
-    const result = document.getElementById('result');
-    result.innerHTML = message;
-    
-    result.classList.remove("flash");
-    void result.offsetWidth;
-    result.classList.add("flash");
-}
-</script>
+        <div class="buttons">
+            <a class="btn"
+               href="https://github.com/radioactivedonuts/EggplantFarts"
+               target="_blank">
+               GitHub
+            </a>
+
+            <a class="btn"
+               href="https://radioactivedonuts.github.io/EggplantFarts/"
+               target="_blank">
+               Open Site
+            </a>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 EggplantHub • Powered by 🍆
+</footer>
+
 </body>
 </html>
