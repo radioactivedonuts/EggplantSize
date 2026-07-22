@@ -4,231 +4,316 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>EggplantHub</title>
+<link rel="icon"
+href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍆</text></svg>">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🍆</text></svg>">
-
+<title>🍆 How Big is Your Eggplant?</title>
 
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
 *{
-    margin:0;
-    padding:0;
     box-sizing:border-box;
-    font-family:Inter,Arial,sans-serif;
 }
 
 body{
+    margin:0;
     min-height:100vh;
-    background:linear-gradient(135deg,#3b0764,#581c87,#7e22ce);
-    overflow-x:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    overflow:hidden;
+
+    font-family:'Press Start 2P', monospace;
+
+    background:
+    linear-gradient(135deg,#160020,#4b0060),
+    repeating-linear-gradient(
+        45deg,
+        rgba(255,255,255,.03) 0px,
+        rgba(255,255,255,.03) 20px,
+        transparent 20px,
+        transparent 40px
+    );
+
     color:white;
 }
 
-.floating{
-    position:fixed;
-    font-size:40px;
-    opacity:.15;
-    animation:float linear infinite;
-    pointer-events:none;
-}
-
-@keyframes float{
-    from{
-        transform:translateY(110vh) rotate(0deg);
-    }
-    to{
-        transform:translateY(-120px) rotate(360deg);
-    }
-}
-
-header{
-    text-align:center;
-    padding:60px 20px 30px;
-}
-
-h1{
-    font-size:4rem;
-    margin-bottom:10px;
-    text-shadow:0 0 20px rgba(255,255,255,.4);
-}
-
-.subtitle{
-    opacity:.85;
-    font-size:1.2rem;
-}
 
 .container{
-    max-width:1200px;
-    margin:auto;
-    padding:30px;
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-    gap:25px;
+    width:95%;
+    max-width:700px;
 }
 
-.card{
-    backdrop-filter:blur(18px);
-    background:rgba(255,255,255,.1);
-    border:1px solid rgba(255,255,255,.2);
-    border-radius:25px;
-    padding:30px;
-    transition:.3s;
-    box-shadow:0 8px 32px rgba(0,0,0,.3);
-}
 
-.card:hover{
-    transform:translateY(-8px);
-}
-
-.card h2{
-    font-size:2rem;
-    margin-bottom:10px;
-}
-
-.card p{
-    opacity:.85;
-    margin-bottom:20px;
+h1{
+    font-size:35px;
     line-height:1.5;
+    color:#ffdd55;
+
+    text-shadow:
+    4px 4px #7a4b00,
+    0 0 20px #ffbb00;
+
+    margin-bottom:40px;
 }
 
-.buttons{
-    display:flex;
-    flex-wrap:wrap;
-    gap:10px;
+
+.button-area{
+    position:relative;
 }
 
-.btn{
-    flex:1;
-    min-width:120px;
-    text-decoration:none;
+
+button{
+
+    font-family:'Press Start 2P', monospace;
+
+    width:100%;
+    max-width:500px;
+
+    padding:35px 20px;
+
+    font-size:20px;
+
     color:white;
-    text-align:center;
-    padding:12px;
-    border-radius:999px;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.2);
-    backdrop-filter:blur(12px);
-    transition:.25s;
+
+    background:
+    linear-gradient(#9b32c9,#5b0080);
+
+    border:6px solid #330044;
+
+    box-shadow:
+    inset 0 -8px rgba(0,0,0,.3),
+    0 10px 0 #22002d,
+    0 20px 30px rgba(0,0,0,.5);
+
+    cursor:pointer;
+
+    transition:.15s;
 }
 
-.btn:hover{
-    background:rgba(255,255,255,.25);
-    transform:scale(1.05);
+
+button:hover{
+    transform:translateY(-5px);
+
+    background:
+    linear-gradient(#c54aff,#7b00aa);
 }
 
-footer{
-    text-align:center;
-    padding:40px 20px;
-    opacity:.7;
+
+button:active{
+    transform:translateY(5px);
+    box-shadow:
+    inset 0 -3px rgba(0,0,0,.3),
+    0 5px 0 #22002d;
 }
+
+
+
+#splash{
+
+    position:absolute;
+
+    top:-40px;
+    right:-20px;
+
+    color:#ffff00;
+
+    font-size:20px;
+
+    transform:rotate(-20deg);
+
+    text-shadow:
+    3px 3px #555;
+
+    animation:splash .5s infinite alternate;
+
+}
+
+
+
+@keyframes splash{
+
+from{
+transform:rotate(-20deg) scale(1);
+}
+
+to{
+transform:rotate(-20deg) scale(1.15);
+}
+
+}
+
+
+
+#result{
+
+    margin-top:60px;
+
+    min-height:160px;
+
+    font-size:22px;
+
+    line-height:2;
+
+    color:#55ff55;
+
+    text-shadow:
+
+    3px 3px #003300,
+    0 0 15px #00ff00;
+
+}
+
+
+
+.flash{
+
+animation:pop .5s;
+
+}
+
+
+@keyframes pop{
+
+0%{
+transform:scale(1);
+}
+
+50%{
+transform:scale(1.2);
+}
+
+100%{
+transform:scale(1);
+}
+
+}
+
 </style>
+
 </head>
+
+
 <body>
 
-<div class="floating" style="left:5%;animation-duration:16s;">🍆</div>
-<div class="floating" style="left:20%;animation-duration:22s;">🍆</div>
-<div class="floating" style="left:35%;animation-duration:18s;">🍆</div>
-<div class="floating" style="left:50%;animation-duration:24s;">🍆</div>
-<div class="floating" style="left:65%;animation-duration:19s;">🍆</div>
-<div class="floating" style="left:80%;animation-duration:21s;">🍆</div>
-<div class="floating" style="left:95%;animation-duration:17s;">🍆</div>
-
-<header>
-    <h1>🍆 EggplantHub 🍆</h1>
-    <p class="subtitle">Home of all the Eggplant projects.</p>
-</header>
 
 <div class="container">
 
-    <div class="card">
-        <h2>📁 The Eggplant Files</h2>
-        <p>
-            A collection of games and projects all in one place.
-        </p>
 
-        <div class="buttons">
-            <a class="btn"
-               href="https://github.com/radioactivedonuts/TheEggplantFiles"
-               target="_blank">
-               GitHub
-            </a>
+<h1>
+🍆 HOW BIG IS YOUR<br>
+EGGPLANT? 🍆
+</h1>
 
-            <a class="btn"
-               href="https://radioactivedonuts.github.io/TheEggplantFiles/"
-               target="_blank">
-               Open Site
-            </a>
-        </div>
-    </div>
 
-    <div class="card">
-        <h2>🖱️ Eggplant Clicker</h2>
-        <p>
-            Click, upgrade, automate, and become the ultimate eggplant billionaire.
-        </p>
+<div class="button-area">
 
-        <div class="buttons">
-            <a class="btn"
-               href="https://github.com/radioactivedonuts/EggplantClicker"
-               target="_blank">
-               GitHub
-            </a>
+<div id="splash"></div>
 
-            <a class="btn"
-               href="https://radioactivedonuts.github.io/EggplantClicker/"
-               target="_blank">
-               Open Site
-            </a>
-        </div>
-    </div>
-
-    <div class="card">
-    <h2>📏 Eggplant Size</h2>
-    <p>
-        Compare, measure, and discover just how enormous your eggplants can become.
-    </p>
-
-    <div class="buttons">
-        <a class="btn"
-           href="https://github.com/radioactivedonuts/EggplantSize"
-           target="_blank">
-           GitHub
-        </a>
-
-        <a class="btn"
-           href="https://radioactivedonuts.github.io/EggplantSize/"
-           target="_blank">
-           Open Site
-        </a>
-    </div>
-</div>
-
-    <div class="card">
-        <h2>🔊 Eggplant Farts</h2>
-        <p>
-            A soundboard packed with ridiculous eggplant noises.
-        </p>
-
-        <div class="buttons">
-            <a class="btn"
-               href="https://github.com/radioactivedonuts/EggplantFarts"
-               target="_blank">
-               GitHub
-            </a>
-
-            <a class="btn"
-               href="https://radioactivedonuts.github.io/EggplantFarts/"
-               target="_blank">
-               Open Site
-            </a>
-        </div>
-    </div>
+<button onclick="testLuck()">
+TEST YOUR EGGPLANT
+</button>
 
 </div>
 
-<footer>
-    © 2026 EggplantHub • Powered by 🍆
-</footer>
+
+<div id="result">
+PRESS THE BUTTON...
+</div>
+
+
+</div>
+
+
+
+<script>
+
+
+const outcomes=[
+
+"👑 THE ULTIMATE EGGPLANT!!!<br>0418382943 call me ☎️",
+
+"💎 GOD TIER EGGPLANT<br>MYTHICAL holy fricking gawd",
+
+"🌟 ABSOLUTELY MASSIVE<br>No words...",
+
+"🍆 VERY THICK EGGPLANT<br>OMGAH u r so fricking biiiig!",
+
+"👍 SOLID EGGPLANT<br>Dayum bro ur a chad",
+
+"🙂 DECENT EGGPLANT<br>Not bad, most men would settle for this!",
+
+"😐 MID EGGPLANT<br>Average eggplant, could be better",
+
+"😔 SAD EGGPLANT<br>Hope it grows...",
+
+"💀 NO EGGPLANT<br>Ahem Men Only!"
+
+];
+
+
+
+const splashTexts=[
+
+"AUBERGINE!",
+
+"100% REAL!",
+
+"NO VIRUS 😎",
+
+"RNG MOMENT!",
+
+"LEGENDARY!",
+
+"BIG BOI!",
+
+"EPIC DROP!",
+
+"LUCKY?!",
+
+"MAX SIZE?!",
+
+"SHINY!",
+
+"GOATED!",
+
+"🍆🍆🍆",
+
+"SUPER RARE!"
+
+];
+
+
+
+document.getElementById("splash").innerHTML=
+splashTexts[Math.floor(Math.random()*splashTexts.length)];
+
+
+
+function testLuck(){
+
+let result=document.getElementById("result");
+
+
+let roll=Math.floor(Math.random()*outcomes.length);
+
+
+result.innerHTML=outcomes[roll];
+
+
+result.classList.remove("flash");
+
+void result.offsetWidth;
+
+result.classList.add("flash");
+
+
+}
+
+</script>
+
 
 </body>
 </html>
