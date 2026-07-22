@@ -2,6 +2,7 @@
 
 A ridiculously fun single-file luck tester with maximum eggplant size.
 
+## Updated to have better odds tag me on socials @Eggplants4Lyfe 
 
 ## 🎮 How to Play
 
